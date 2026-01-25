@@ -1,0 +1,45 @@
+site_name: AutoDrive-R2
+site_description: AutoDrive-R2 is an autonomous driving research project focusing on reinforcement learning and vision-language models for self-driving vehicles.
+site_author: AutoDrive-R2 Team
+
+# Material theme settings
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: blue
+  features:
+    - header.autohide
+    - navigation.instant
+  icon:
+    repo: fontawesome/brands/github
+  repo_url: https://github.com/cxqian/AutoDrive-R2
+  repo_name: cxqian/AutoDrive-R2
+
+
+plugins:
+  - search
+
+
+# Left Navigation bar
+nav:
+  - Home: index.md
+  - Quick Start:
+      - Installation and Usage: quick-start.md
+  - Configurations:
+      - General Configuration: configs/configuration.md
+  - Environments:
+      - Environments Setup: envs/environments.md
+
+# Copyright footer
+copyright: Copyright © 2025, AutoDrive-R2 Team
+
+# Additional settings
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
