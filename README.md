@@ -181,11 +181,13 @@ python AScripts/eval_waymo.py
 If you find our work helpful for your research, please consider citing:
 
 ```bibtex
-@article{yuan2025autodrive,
-  title={AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving},
-  author={Yuan, Zhenlong and Qian, Chengxuan and Tang, Jing and Chen, Rui and Song, Zijian and Sun, Lei and Chu, Xiangxiang and Cai, Yujun and Zhang, Dapeng and Li, Shuo},
-  journal={arXiv preprint arXiv:2509.01944},
-  year={2025}
+@inproceedings{
+    yuan2026autodriver,
+    title={AutoDrive-R{\texttwosuperior}: Incentivizing Reasoning and Self-Reflection Capacity for {VLA} Model in Autonomous Driving},
+    author={Zhenlong Yuan and Chengxuan Qian and Jing Tang and Rui Chen and Zijian Song and Lei Sun and Xiangxiang Chu and Yujun Cai and Dapeng Zhang and Shuo Li},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=KVWaCzJrrq}
 }
 ```
 
