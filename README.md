@@ -1,4 +1,4 @@
-# 【ICLR2026】AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving (Top 5% Rating)
+# 【ICLR2026】AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving
 
 [![arXiv Paper](https://img.shields.io/badge/arXiv-2509.01944-b31b1b.svg)](https://arxiv.org/pdf/2509.01944)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
