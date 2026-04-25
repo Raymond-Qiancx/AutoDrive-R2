@@ -2,8 +2,6 @@
 
 <h1>🚗 AutoDrive-R2: Incentivizing Reasoning and<br>Self-Reflection Capacity for VLA Model in Autonomous Driving</h1>
 
-<hr>
-
 <h2>ICLR 2026</h2>
 
 <p>
@@ -29,8 +27,6 @@ AutoDrive-R2 is a specialized Vision-Language-Action (VLA) model designed for **
 
 Given a front-view camera image and historical vehicle status (position, velocity, acceleration, steering angle), AutoDrive-R2 predicts **future waypoints** at 0.5s intervals for the next 3 seconds.
 
----
-
 ## 🎯 Core Task
 
 **Input:**
@@ -47,8 +43,6 @@ Given a front-view camera image and historical vehicle status (position, velocit
 3. **Logical Deductions**: Safety checks and path planning
 4. **Self-Reflection**: Validate predicted trajectory feasibility
 
----
-
 ## 🏗️ Architecture
 
 <p align="center">
@@ -60,16 +54,12 @@ Given a front-view camera image and historical vehicle status (position, velocit
     The second stage proposes an novel physics-grounded reward framework for RL optimization, which incorporates spatial alignment, vehicle dynamic, and temporal smoothness for reliable trajectory planning.
 </p>
 
----
-
 ## 📍 Features
 
 - **Qwen2.5-VL Base Model**: Leverages state-of-the-art vision-language capabilities
 - **Chain-of-Thought Reasoning**: Explicit reasoning steps for interpretable predictions
 - **Rule-based RL Training**: GRPO with physics-grounded rewards
 - **Multi-dataset Support**: Trained and evaluated on nuScenes and Waymo
-
----
 
 ## 🔍 Dataset
 
@@ -124,8 +114,6 @@ nuscenes/
 
 Download from Baidu Netdisk: [Link Coming Soon]
 
----
-
 ## 📐 Set up
 
 ```bash
@@ -143,8 +131,6 @@ pip install -r requirements.txt
 # Install flash-attention
 pip install flash-attn --no-build-isolation
 ```
-
----
 
 ## 🚀 Training
 
@@ -172,8 +158,6 @@ Fine-tune with GRPO using physics-grounded rewards:
 bash src/scripts/run_grpo_video_7B_6k.sh
 ```
 
----
-
 ## 🔮 Inference & Evaluation
 
 ### Evaluate on nuScenes
@@ -187,8 +171,6 @@ python AScripts/eval_nuscene.py
 ```bash
 python AScripts/eval_waymo.py
 ```
-
----
 
 ## 📜 Citation
 
@@ -204,8 +186,6 @@ If you find our work helpful for your research, please consider citing:
     url={https://openreview.net/forum?id=KVWaCzJrrq}
 }
 ```
-
----
 
 ## 🤝 Acknowledgements
 
