@@ -1,103 +1,94 @@
-<div align="center">
+# 【ICLR2026】AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving
 
-# AutoDrive-R2
+[![arXiv Paper](https://img.shields.io/badge/arXiv-2509.01944-b31b1b.svg)](https://arxiv.org/pdf/2509.01944)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-### Incentivizing Reasoning and Self-Reflection Capacity for VLA Models in Autonomous Driving
-
-[![ICLR 2026](https://img.shields.io/badge/ICLR-2026-8A2BE2)](https://openreview.net/forum?id=KVWaCzJrrq)
-[![arXiv](https://img.shields.io/badge/arXiv-2509.01944-b31b1b.svg)](https://arxiv.org/pdf/2509.01944)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
-[Paper](https://arxiv.org/pdf/2509.01944) ·
-[AutoDrive-R2-7B](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B) ·
-[AutoDrive-R2-7B-COT-SFT](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B-COT-SFT) ·
-[Dataset](https://huggingface.co/datasets/ZhenlongYuan/AutoDrive-R2-all-data/tree/main)
-
-</div>
+|[[📖 Paper](https://arxiv.org/pdf/2509.01944)] [[🤗 AutoDrive-R2-7B](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B)] [[🤗 AutoDrive-R2-7B-COT-SFT](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B-COT-SFT)] [[📊 All Data](https://huggingface.co/datasets/ZhenlongYuan/AutoDrive-R2-all-data/tree/main)]
 
 <p align="center">
-  <img src="./images/1.png" width="92%" alt="AutoDrive-R2 overview">
+    <img src="./images/1.png" width="90%" height="90%">
 </p>
 
-## Overview
+## 👀 About AutoDrive-R2
 
-**AutoDrive-R2** is a Vision-Language-Action (VLA) model for autonomous driving trajectory prediction. It strengthens reasoning and self-reflection through a two-stage training recipe:
+AutoDrive-R2 is a specialized Vision-Language-Action (VLA) model designed for **autonomous driving trajectory prediction**, which elicits reasoning and self-reflection capacities through rule-based Reinforcement Learning (RL).
 
-- **Chain-of-Thought SFT** on `nuScenesR²-6K`, a reasoning dataset with explicit logical chains and self-reflection.
-- **Rule-based RL optimization** with physics-grounded rewards for spatial alignment, vehicle dynamics, and temporal smoothness.
+Given a front-view camera image and historical vehicle status (position, velocity, acceleration, steering angle), AutoDrive-R2 predicts **future waypoints** at 0.5s intervals for the next 3 seconds.
 
-Given a front-view camera image and historical ego-vehicle states, AutoDrive-R2 predicts six future waypoints at 0.5-second intervals for the next 3 seconds.
+---
 
-## Highlights
+## 🎯 Core Task
 
-- **Reasoning-aware trajectory prediction** with explicit visual analysis, motion modeling, logical deduction, and self-reflection.
-- **Qwen2.5-VL backbone** for strong multimodal understanding.
-- **Physics-grounded GRPO training** with rule-based rewards tailored to driving trajectories.
-- **nuScenes and Waymo support** for training and benchmark evaluation.
+**Input:**
+- Front-view camera image
+- Historical vehicle status (last 2.0-3.0 seconds at 0.5s intervals)
 
-## Task Definition
+**Output:**
+- 6 future waypoints: [x(t+0.5s), x(t+1.0s), ..., x(t+3.0s)]
+- Each waypoint: [x_coordinate, y_coordinate] in meters
 
-| Item | Description |
-| --- | --- |
-| Input image | Front-view camera image |
-| Historical states | Ego-vehicle position, velocity, acceleration, and steering angle from the previous 2.0-3.0 seconds |
-| Prediction horizon | 3 seconds |
-| Output | 6 future waypoints sampled every 0.5 seconds |
-| Coordinate system | `x` is forward, `y` is leftward, measured in meters |
+**Reasoning Process:**
+1. **Visual Analysis**: Analyze road conditions, obstacles, and traffic signals
+2. **Motion Modeling**: Apply kinematic equations for trajectory prediction
+3. **Logical Deductions**: Safety checks and path planning
+4. **Self-Reflection**: Validate predicted trajectory feasibility
 
-The model predicts:
+---
 
-```text
-[(x0.5, y0.5), (x1.0, y1.0), ..., (x3.0, y3.0)]
-```
-
-## Method
+## 🏗️ Architecture
 
 <p align="center">
-  <img src="./images/2.png" width="92%" alt="AutoDrive-R2 training pipeline">
+    <img src="./images/2.png" width="90%" height="90%">
 </p>
 
-AutoDrive-R2 follows a two-stage pipeline:
+<p align="left">
+    <b>Pipeline of our method.</b> We adopt a two-stage training process. The first stage introduces an innovative CoT dataset named nuScenesR²-6K for SFT. The nuScenesR²-6K adopts a four-step logical chain with self-reflection to generate valuable chain-of-thought data.
+    The second stage proposes an novel physics-grounded reward framework for RL optimization, which incorporates spatial alignment, vehicle dynamic, and temporal smoothness for reliable trajectory planning.
+</p>
 
-1. **CoT Supervised Fine-Tuning**
-   - Builds `nuScenesR²-6K` with a four-step reasoning chain.
-   - Teaches the model to analyze driving scenes and reflect on trajectory feasibility.
+---
 
-2. **Physics-Grounded Reinforcement Learning**
-   - Optimizes with GRPO.
-   - Uses rewards for spatial alignment, vehicle dynamics, and temporal smoothness.
+## 📍 Features
 
-## Data
+- **Qwen2.5-VL Base Model**: Leverages state-of-the-art vision-language capabilities
+- **Chain-of-Thought Reasoning**: Explicit reasoning steps for interpretable predictions
+- **Rule-based RL Training**: GRPO with physics-grounded rewards
+- **Multi-dataset Support**: Trained and evaluated on nuScenes and Waymo
+
+---
+
+## 🔍 Dataset
 
 ### Training Data
 
-| File | Samples | Description |
-| --- | ---: | --- |
-| `AData/sft.json` | ~60K | Raw SFT training data |
-| `AData/sft_cot.json` | ~60K | CoT-annotated SFT data |
-| `AData/rl.json` | ~60K | RL training data |
+| Dataset | Samples | Description |
+|---------|---------|-------------|
+| `sft.json` | ~60K | SFT training data (raw) |
+| `sft_cot.json` | ~60K | SFT training data (with CoT reasoning) |
+| `rl.json` | ~60K | RL training data |
 
 ### Evaluation Data
 
-| File | Samples | Benchmark |
-| --- | ---: | --- |
-| `AData/nuscenes_test.json` | ~54K | nuScenes |
-| `AData/waymo_test.json` | ~12K | Waymo |
+| Dataset | Samples | Description |
+|---------|---------|-------------|
+| `nuscenes_test.json` | ~54K | nuScenes benchmark |
+| `waymo_test.json` | ~12K | Waymo benchmark |
 
-### Vehicle State Format
+### Input Format
 
-Each sample contains historical states at 0.5-second intervals:
+Each sample contains historical vehicle status at 0.5s intervals:
+- Position: `[x, y]` coordinates (x=forward, y=leftward)
+- Velocity: `v` in m/s
+- Acceleration: `a_x, a_y` in m/s²
+- Steering angle: `θ` (positive=left turn, negative=right turn)
 
-- Position: `[x, y]`
-- Velocity: `v`, in m/s
-- Acceleration: `a_x`, `a_y`, in m/s²
-- Steering angle: `theta`, where positive means left turn and negative means right turn
+### Download Datasets
 
-### Raw Dataset Layout
+#### nuScenes Dataset
 
-Download nuScenes from the [official website](https://www.nuscenes.org/download) and organize it as:
+Download from [nuScenes Official Website](https://www.nuscenes.org/download):
 
-```text
+```
 nuscenes/
 ├── samples/
 │   ├── CAM_BACK/
@@ -115,73 +106,79 @@ nuscenes/
     └── CAM_FRONT_RIGHT/
 ```
 
-Waymo download instructions will be released later.
+#### Waymo Dataset
 
-## Installation
+Download from Baidu Netdisk: [Link Coming Soon]
+
+---
+
+## 📐 Set up
 
 ```bash
+# Clone the repository
 git clone https://github.com/your-repo/AutoDrive-R2
 cd AutoDrive-R2
 
+# Create conda environment
 conda create -n autodrive-r2 python=3.11
 conda activate autodrive-r2
 
+# Install dependencies
 pip install -r requirements.txt
+
+# Install flash-attention
 pip install flash-attn --no-build-isolation
 ```
 
-## Training
+---
 
-### 1. Generate CoT Data
+## 🚀 Training
+
+### Step 1: Generate CoT Data
+
+Generate Chain-of-Thought reasoning for SFT training:
 
 ```bash
 python AScripts/cot.py
 ```
 
-### 2. Run Supervised Fine-Tuning
+### Step 2: Supervised Fine-Tuning (SFT)
+
+Perform SFT training on CoT-annotated data:
 
 ```bash
 bash src/scripts/run_sft_video_7B_6k.sh
 ```
 
-### 3. Run GRPO Reinforcement Learning
+### Step 3: Reinforcement Learning (GRPO)
+
+Fine-tune with GRPO using physics-grounded rewards:
 
 ```bash
 bash src/scripts/run_grpo_video_7B_6k.sh
 ```
 
-## Evaluation
+---
 
-Evaluate on nuScenes:
+## 🔮 Inference & Evaluation
+
+### Evaluate on nuScenes
 
 ```bash
 python AScripts/eval_nuscene.py
 ```
 
-Evaluate on Waymo:
+### Evaluate on Waymo
 
 ```bash
 python AScripts/eval_waymo.py
 ```
 
-## Repository Structure
+---
 
-```text
-.
-├── AData/                 # Training and evaluation JSON files
-├── AScripts/              # CoT generation and evaluation scripts
-├── images/                # README figures
-├── src/
-│   ├── scripts/           # SFT and GRPO launch scripts
-│   ├── r1-v/              # Training framework and model code
-│   └── qwen-vl-utils/     # Qwen-VL utility package
-├── requirements.txt
-└── README.md
-```
+## 📜 Citation
 
-## Citation
-
-If you find this work useful, please cite:
+If you find our work helpful for your research, please consider citing:
 
 ```bibtex
 @inproceedings{
@@ -194,10 +191,11 @@ If you find this work useful, please cite:
 }
 ```
 
-## Acknowledgements
+---
 
-This project builds on the following open-source projects and datasets:
+## 🤝 Acknowledgements
 
+We sincerely appreciate the contributions of the open-source community:
 - [Video-R1](https://github.com/tulerfeng/Video-R1)
 - [lmm-r1](https://github.com/TideDra/lmm-r1)
 - [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
