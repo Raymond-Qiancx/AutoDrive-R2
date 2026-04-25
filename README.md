@@ -1,11 +1,23 @@
-<div align="center">
-
-<h1>🚗 AutoDrive-R2: Incentivizing Reasoning and<br>Self-Reflection Capacity for VLA Model in Autonomous Driving</h1>
-
-<h2>ICLR 2026</h2>
+<div align="left">
 
 <p>
-Zhenlong Yuan, Chengxuan Qian, Jing Tang, Rui Chen, Zijian Song, Lei Sun, Xiangxiang Chu, Yujun Cai, Dapeng Zhang, Shuo Li
+<strong>🚗 AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving</strong>
+</p>
+
+</div>
+
+<div align="center">
+
+<p>
+<strong>ICLR 2026</strong>
+</p>
+
+<p>
+Zhenlong Yuan<sup>1*†</sup>, Chengxuan Qian<sup>1*</sup>, Jing Tang<sup>1</sup>, Rui Chen<sup>1</sup>, Zijian Song<sup>2</sup>, Lei Sun<sup>1‡</sup>, Xiangxiang Chu<sup>1</sup>, Yujun Cai<sup>3</sup>, Dapeng Zhang<sup>4§</sup>, Shuo Li<sup>5</sup>
+</p>
+
+<p>
+<sup>*</sup> Equal contribution &nbsp; <sup>†</sup> Project Lead &nbsp; <sup>§</sup> Corresponding Author
 </p>
 
 [![Website](https://img.shields.io/badge/🌐_WEBSITE-0E8CCF?style=for-the-badge&labelColor=4A4A4A)](https://openreview.net/forum?id=KVWaCzJrrq)
