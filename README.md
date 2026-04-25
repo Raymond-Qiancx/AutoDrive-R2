@@ -1,9 +1,23 @@
-# [ICLR2026] AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving
+<div align="center">
 
-[![arXiv Paper](https://img.shields.io/badge/arXiv-2509.01944-b31b1b.svg)](https://arxiv.org/pdf/2509.01944)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<h1>🚗 AutoDrive-R2: Incentivizing Reasoning and<br>Self-Reflection Capacity for VLA Model in Autonomous Driving</h1>
 
-|[[📖 Paper](https://arxiv.org/pdf/2509.01944)] [[🤗 AutoDrive-R2-7B](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B)] [[🤗 AutoDrive-R2-7B-COT-SFT](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B-COT-SFT)] [[📊 All Data](https://huggingface.co/datasets/ZhenlongYuan/AutoDrive-R2-all-data/tree/main)]
+<hr>
+
+<h2>ICLR 2026</h2>
+
+<p>
+Zhenlong Yuan, Chengxuan Qian, Jing Tang, Rui Chen, Zijian Song, Lei Sun, Xiangxiang Chu, Yujun Cai, Dapeng Zhang, Shuo Li
+</p>
+
+[![Website](https://img.shields.io/badge/🌐_WEBSITE-0E8CCF?style=for-the-badge&labelColor=4A4A4A)](https://openreview.net/forum?id=KVWaCzJrrq)
+[![Paper](https://img.shields.io/badge/📄_PAPER-111111?style=for-the-badge&labelColor=4A4A4A)](https://arxiv.org/pdf/2509.01944)
+[![SFT Model](https://img.shields.io/badge/🤗_SFT_MODEL-FF7A3D?style=for-the-badge&labelColor=4A4A4A)](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B-COT-SFT)
+[![RL Model](https://img.shields.io/badge/🤗_RL_MODEL-FF7A3D?style=for-the-badge&labelColor=4A4A4A)](https://huggingface.co/ZhenlongYuan/AutoDrive-R2-7B)
+[![Dataset](https://img.shields.io/badge/🤗_DATASET-E4B313?style=for-the-badge&labelColor=4A4A4A)](https://huggingface.co/datasets/ZhenlongYuan/AutoDrive-R2-all-data/tree/main)
+[![License](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge&labelColor=4A4A4A)](LICENSE)
+
+</div>
 
 <p align="center">
     <img src="./images/1.png" width="90%" height="90%">
