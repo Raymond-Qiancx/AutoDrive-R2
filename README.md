@@ -1,6 +1,6 @@
 <div align="left">
 
-<p style="font-size: 72px;">
+<p style="font-size: 160px;">
 <strong>🚗 AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving</strong>
 </p>
 
