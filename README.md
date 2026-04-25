@@ -1,6 +1,6 @@
 <div align="left">
 
-<p style="font-size: 32px;">
+<p style="font-size: 72px;">
 <strong>🚗 AutoDrive-R2: Incentivizing Reasoning and Self-Reflection Capacity for VLA Model in Autonomous Driving</strong>
 </p>
 
@@ -13,7 +13,7 @@
 </p>
 
 <p>
-Zhenlong Yuan<sup>1*†</sup>, Chengxuan Qian<sup>1*</sup>, Jing Tang<sup>1</sup>, Rui Chen<sup>1</sup>, Zijian Song<sup>2</sup>, Lei Sun<sup>1‡</sup>, Xiangxiang Chu<sup>1</sup>, Yujun Cai<sup>3</sup>, Dapeng Zhang<sup>4§</sup>, Shuo Li<sup>5</sup>
+Zhenlong Yuan<sup>*†</sup>, Chengxuan Qian<sup>*</sup>, Jing Tang, Rui Chen, Zijian Song, Lei Sun<sup>‡</sup>, Xiangxiang Chu, Yujun Cai, Dapeng Zhang<sup>§</sup>, Shuo Li
 </p>
 
 <p>
